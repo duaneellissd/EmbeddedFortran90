@@ -1,0 +1,33 @@
+default: _default
+#! /bin/make
+
+
+whatis_%:
+	echo "${*} is: ${$*}"
+
+
+
+SCRIPT_DIRHERE=$${abspath ${lastword ${MAKEFILE_LIST}}
+include ../settings.mak
+include ./Makefile.common
+
+${CACHE_DIR}:
+	mkdir -p ${CACHE_DIR}
+
+${CACHED_GCC}: ${CACHE_DIR}
+	cd ${CACHE_DIR}
+	wget http://ftp.gnu.org/gnu/gcc/gcc-${GCC_VERSION}/${GCC_TARGZ}
+
+${CACHED_GDB}: ${CACHE_DIR}
+	cd ${CACHE_DIR}
+	wget http://ftp.gnu.org/gnu/gdb/${GDB_TARGZ}
+
+${CACHED_BINUTILS}: ${CACHE_DIR}
+	${CACHED_BINUILS}: ${CACHE_DIR}
+	cd ${CACHE_DIR}
+	wget http://ftp.gnu.org/gnu/binuitls/${BINUTILS_TAR_GZ}
+
+all: ${CACHE_DIR} ${CACHED_GCC} ${CACHED_GDB} ${CACHED_BINUTILS}
+
+clean:
+	rm -rf ${CACHE_DIR}
