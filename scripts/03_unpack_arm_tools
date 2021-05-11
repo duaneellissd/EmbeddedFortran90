@@ -1,0 +1,30 @@
+#! /bin/bash
+set -e
+set -x
+
+mkdir -p ../src.d
+
+HERE=`pwd`/
+SRCD=${HERE}../src.d
+CACHED=${HERE}../cache.d
+cd ${SRCD}
+
+rm -rf ${SRCD}/gcc-11.1.0
+cd ${SRCD}
+tar xf ${CACHED}/gcc-11.1.0.tar.gz
+cd ${SRCD}/gcc-11.1.0
+autoconf
+
+rm -rf ${SRCD}/binutils-2.36
+cd ${SRCD}
+tar xf ${CACHED}/binutils-2.36.tar.gz
+cd ${SRCD}/binutils-2.36
+autoconf
+
+
+rm -rf ${SRCD}gdb-10.2.tar.gz
+cd ${SRCD}
+tar xf ${CACHED}/gdb-10.2.tar.gz
+cd ${SRCD}/gdb-10.2
+autoconf
+

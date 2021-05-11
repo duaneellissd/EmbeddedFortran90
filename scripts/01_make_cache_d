@@ -1,0 +1,7 @@
+#! /bin/bash
+set -x
+set -e
+rm -rf ../cache.d
+mkdir -p ../cache.d
+mkdir -p ../src.d
+
