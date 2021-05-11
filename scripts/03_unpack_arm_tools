@@ -2,6 +2,8 @@
 set -e
 set -x
 
+mkdir -p ../src.d
+
 HERE=`pwd`/
 SRCD=${HERE}../src.d
 CACHED=${HERE}../cache.d
@@ -21,7 +23,8 @@ autoconf
 
 
 rm -rf ${SRCD}gdb-10.2.tar.gz
+cd ${SRCD}
 tar xf ${CACHED}/gdb-10.2.tar.gz
-cd ${SRCD}/gdb.10.20
+cd ${SRCD}/gdb-10.2
 autoconf
 
