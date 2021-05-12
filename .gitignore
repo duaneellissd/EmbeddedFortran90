@@ -1,12 +1,16 @@
-# http://www.gnu.org/software/automake
-
+# -*- mode: gitignore; -*-
+/cache.d
+/src.d
+# Emacs 
+\#.*\#
+*~
+# automake
 Makefile.in
 /ar-lib
 /mdate-sh
 /py-compile
 /test-driver
 /ylwrap
-
 # http://www.gnu.org/software/autoconf
 
 autom4te.cache
