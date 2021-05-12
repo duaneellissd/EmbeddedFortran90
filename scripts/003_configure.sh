@@ -1,4 +1,5 @@
 #! /bin/bash
+set -x
 cd ..
 TOP_DIR=`pwd`
 source ${TOP_DIR}/settings.sh
