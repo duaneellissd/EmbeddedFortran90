@@ -2,6 +2,7 @@
 set -e
 set -x
 
+rm  -rf  ../src.d
 mkdir -p ../src.d
 
 HERE=`pwd`/
@@ -13,6 +14,7 @@ rm -rf ${SRCD}/gcc-11.1.0
 cd ${SRCD}
 tar xf ${CACHED}/gcc-11.1.0.tar.gz
 cd ${SRCD}/gcc-11.1.0
+bash +x -e contrib/download_prerequisites
 autoconf
 
 rm -rf ${SRCD}/binutils-2.36

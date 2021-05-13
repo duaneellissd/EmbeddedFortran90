@@ -10,16 +10,13 @@ cd ${SRC_D}
 rm -rf binutils-arm
 mkdir -p binutils-arm
 cd  binutils-arm
-../binutils-2.36/configure --prefix=${IDIR} --exec-prefix=${EDIR_ARM} --target=arm-none-eabi
-make all
-make install
+../binutils-2.36/configure --prefix=${IDIR} --exec-prefix=${EDIR_ARM} --target=arm-none-eabi --disable-shared --enable-static
+
+cd ${SRC_D}/gcc-11.1.0
+
+bash contrib/download_prerequisites
 
 cd ${SRC_D}
-rm -rf gcc.arm.build
-mkdir -p gcc.arm.buildls
+mkdir -p gcc.arm.build
 cd gcc.arm.build
-cd contrib
-./download_prerequisites
-../gcc-11.1.0/configure --disable-shared --eanble-static --prefix=${IDIR} --exec-prefix=${EDIR_ARM} --target=arm-none-eabi 
-make all
-make install
+../gcc-11.1.0/configure --enable-bootstrap --disable-shared --enable-static --prefix=${IDIR} --exec-prefix=${EDIR_ARM} --target=arm-none-eabi 
