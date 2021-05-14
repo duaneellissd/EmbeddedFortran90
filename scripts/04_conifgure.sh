@@ -2,7 +2,7 @@
 set -x
 set -e
 IDIR=`cd .. ;pwd`/install
-EDIR_ARM=${IDIR}/arm-none-abi
+EDIR_ARM=${IDIR}/arm-eabi-none
 
 SRC_D=`cd ../src.d && pwd`
 
